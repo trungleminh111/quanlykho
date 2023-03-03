@@ -41,9 +41,9 @@ class ProductController extends Controller
     {
         //
         $product = Product::create($request->only(['name','img','desc','category_id','price','unit','import_price','quantity']));
-        $message = "Seccess full Created";
+        $message = "thêm mới thành công";
         if($product == null){
-            $message = "Seccess full failed";
+            $message = "thêm mới thất bại ";
         }
         return redirect()->route('products.index')->with('message', $message);
     }
@@ -84,9 +84,9 @@ class ProductController extends Controller
         //
         $product = Product::findOrFail($id);
         $bool = $product->update($request->only(['name', 'img', 'desc','category_id','price']));
-        $message = "Seccess full Created";
+        $message = "Cập nhật thành công";
         if(!$bool){
-            $message = "Seccess full failed";
+            $message = "cập nhật thất bại";
 
         }
         return redirect()->route('products.index')->with('message', $message);
@@ -101,9 +101,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-        $message = "Seccess full deleted";
+        $message = "xóa thành công";
         if (!Product::destroy($id)) {
-            $message = "Seccess full failed";
+            $message = "xóa thất bại";
         }
 
         return redirect()->route('products.index')->with('message', $message);

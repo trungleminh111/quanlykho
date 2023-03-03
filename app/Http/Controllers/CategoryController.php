@@ -41,9 +41,9 @@ class CategoryController extends Controller
     {
         //
         $category = Category::create($request->only(['name','desc']));
-        $message = "Seccess full Created";
+        $message = "Thêm mới thành công";
         if($category == null){
-            $message = "Seccess full failed";
+            $message = "thêm mới thất bại";
         }
         return redirect()->route('categories.index')->with('message', $message);
     }
@@ -84,9 +84,9 @@ class CategoryController extends Controller
         //
         $category = Category::findOrFail($id);
         $bool = $category->update($request->only(['name','desc']));
-        $message = "Seccess full Created";
+        $message = "Cập nhật thành công";
         if(!$bool){
-            $message = "Seccess full failed";
+            $message = "cập nhật thất bại";
 
         }
         return redirect()->route('categories.index')->with('message', $message);
@@ -102,9 +102,9 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-        $message = "Seccess full deleted";
+        $message = "Xóa thành công";
         if (!Category::destroy($id)) {
-            $message = "Seccess full failed";
+            $message = "xóa thất bại";
         }
 
         return redirect()->route('products.index')->with('message', $message);
