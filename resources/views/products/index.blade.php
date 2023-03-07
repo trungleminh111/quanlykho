@@ -7,7 +7,7 @@
    
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body " ">
                 <h4 class="card-title">Basic Table</h4>
                 <a class="badge badge-warning btn btn-warning" href="{{ route('products.create') }}"> Create New</a>
                 <p class="card-description"> Add class <code>.table</code> </p>
@@ -27,7 +27,7 @@
                             <th>Delete</th>
                         </tr>
                     </thead>
-                   
+                        
                         @foreach($productList as $product)
                         <tr>
                             <td>{{ $product->id }}</td>
